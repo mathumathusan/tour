@@ -176,10 +176,108 @@
     </div>
     <!-- Booking Ending Point  -->
 
+    <!-- Weather Forecast Starting Point -->
+    <div class="container mt-5"
+        style="background-color: rgb(255, 255, 255); max-width: 600px; margin: 0 auto; margin: 20px auto; padding: 20px; padding-bottom: 40px; border-radius: 40px; overflow: hidden; ">
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Explore the Weather</h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form id="weatherForm">
+                        <div class="form-group">
+                            <label for="city">Select City:</label>
+                            <select class="form-control" id="city">
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
 
-    <!-- Weather Forecast Starting Point  -->
+                                <option value="Kandy">Kandy</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Hatton">Hatton</option>
 
-    <!-- Weather Forecast Ending Point  -->
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+
+                                <option value="Kegalle">Kegalle</option>
+                                <option value="Ratnapura">Ratnapura</option>
+
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="getWeather()">Get
+                            Weather</button>
+                    </form>
+
+                    <div id="weatherInfo" class="mt-4" style="display: none;">
+                        <h4 class="text-center mb-3">Weather Information</h4>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title" id="location"></h5>
+                                <p class="card-text" id="temperature"></p>
+                                <p class="card-text" id="description"></p>
+                                <img id="weatherIcon" alt="Weather Icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // OpenWeatherMap API key
+        const apiKey = '219ed3321df10f53c5e36150907cb365';
+
+        // Function to fetch weather information for a city
+        function fetchWeather(city) {
+            const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city},LK&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update weather information in the HTML
+                    document.getElementById('location').innerText = `${data.name}, ${data.sys.country}`;
+                    document.getElementById('temperature').innerText = `${Math.round(data.main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
+                    document.getElementById('description').innerText = data.weather[0].description;
+
+                    // Set weather icon
+                    const iconCode = data.weather[0].icon;
+                    const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+                    document.getElementById('weatherIcon').src = iconUrl;
+
+                    // Display the weather information div
+                    document.getElementById('weatherInfo').style.display = 'block';
+                })
+                .catch(error => console.error(`Error fetching weather for ${city}:`, error));
+        }
+
+        // Function to get weather for the selected city
+        function getWeather() {
+            const city = document.getElementById('city').value;
+            fetchWeather(city);
+        }
+    </script>
+    <!-- Weather Forecast Ending Point -->
+
+
 
     <!-- Footer Starting Point -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
@@ -270,8 +368,13 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
     <!-- Template Javascript -->
-    <script src="js/Weather.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </body>
 
 </html>
