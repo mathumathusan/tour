@@ -344,7 +344,7 @@
             <button class="next-btn" onclick="moveGallery(1)">&#10095;</button>
         </div>
 
-        <div class="container" style="border: 5px solid #7AB730; border-radius: 5dvh;">
+        <div class="container" style="border: 5px solid #7AB730; border-radius: 5dvh; margin-bottom: 30px;">
             <div id="Horton Plains">
                 <h2 style="padding-left: 60px; padding-top: 40px;">Horton Plains</h2>
                 <p>
@@ -483,7 +483,7 @@
                     <i class="fas fa-images"></i> <!-- Add your icon here -->
                 </button>
 
-                <div id="galleryContainer1" class="gallery-container1">   
+                <div id="galleryContainer1" class="gallery-container1">
                     <div class="gallery1">
                         <div class="row">
                             <div class="column">
@@ -555,6 +555,442 @@
                     function toggleGallery() {
                         var galleryContainer = document.getElementById("galleryContainer1");
                         var toggleBtn = document.getElementById("toggleGalleryBtn");
+
+                        if (galleryContainer.style.display === "none") {
+                            galleryContainer.style.display = "block";
+                        } else {
+                            galleryContainer.style.display = "none";
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="container" style="border: 5px solid #7AB730; border-radius: 5dvh; margin-bottom: 30px;">
+            <div id="Dalada Maligawa">
+                <h2 style="padding-left: 60px; padding-top: 40px;">Dalada Maligawa (Temple of the Sacred Tooth Relic)
+                </h2>
+                <p>
+                <h5 style="padding-left: 40px;">1. About Place?</h5>
+                <P style="text-align: justify; padding-left: 30px; padding-right: 30px;"> Dalada Maligawa, also known as
+                    the Temple of the Sacred Tooth Relic, is a revered Buddhist temple located in the city of Kandy, Sri
+                    Lanka. It houses the sacred tooth relic of the Buddha, which is believed to be a significant
+                    spiritual and cultural symbol for Buddhists around the world. The temple complex includes shrines,
+                    museums, and pavilions, surrounded by beautiful gardens and architectural marvels.</P>
+
+                <h5 style="padding-left: 40px;">2. How to Travel?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> Dalada Maligawa is situated in
+                    the heart of Kandy, making it easily accessible from various parts of the country. Visitors can
+                    reach Kandy by train, bus, or private vehicle from major cities like Colombo or Nuwara Eliya. From
+                    the city center of Kandy, the temple is within walking distance or a short tuk-tuk ride away.</p>
+
+                <h5 style="padding-left: 40px;">3. How Many Days Need?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> A visit to Dalada Maligawa can
+                    be completed within a few hours, making it suitable for a half-day excursion. However, to fully
+                    appreciate the spiritual significance and historical importance of the temple, visitors may choose
+                    to spend additional time exploring the surrounding area, attending religious ceremonies, or learning
+                    about the rich cultural heritage of Kandy.</p>
+
+                <h5 style="padding-left: 40px;">4. How Much Money Need to Spend?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> The cost of visiting Dalada
+                    Maligawa primarily includes entrance fees, which may vary for local and foreign visitors.
+                    Additionally, expenses may include transportation to Kandy, donations to the temple, and optional
+                    guided tours. Prices for entrance fees and guided tours are reasonable, with discounts available for
+                    students and groups. </p>
+                <ul>
+                    <li>Entrance Fee :- Approximately $5 to $10 for foreign tourists.</li>
+                    <li>Transportation :- Varies depending on the mode of transport and distance traveled.</li>
+                    <li>Guide Fees (Optional) :- Around $5 to $10 per person, depending on the duration and services
+                        provided. </li>
+                    <li>Food and Refreshments :- Additional expenses for meals and refreshments if desired.</li>
+                    <li>Miscellaneous :- Any additional purchases or expenses during the visit.</li>
+                </ul>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;">Overall, a conservative
+                    estimate for a visit to Dalada Maligawa could range from $10 to $20 per
+                    person, excluding transportation costs.</p>
+
+                <h5 style="padding-left: 40px;">5. How It Relates to Tourists?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px; padding-bottom: 20px;"> Dalada
+                    Maligawa is one of the most sacred and iconic landmarks in Sri Lanka, attracting tourists, pilgrims,
+                    and history enthusiasts from around the globe. Tourists visit the temple to witness its
+                    architectural beauty, learn about Buddhist traditions, and pay homage to the sacred tooth relic. The
+                    temple complex offers a serene atmosphere for meditation and reflection, as well as opportunities to
+                    observe religious rituals and cultural ceremonies. Additionally, Dalada Maligawa is an integral part
+                    of Kandy's UNESCO World Heritage Site, contributing to the city's cultural and spiritual
+                    significance.</p>
+                </p>
+            </div>
+            <style>
+                .gallery-container {
+                    position: relative;
+                    width: 100%;
+                    overflow: hidden;
+                    padding-left: 10px;
+                }
+
+                .gallery {
+                    display: flex;
+                    transition: transform 0.5s ease;
+                }
+
+                .gallery-item {
+                    flex: 0 0 32%;
+                    /* Each photo takes up 33.33% of container width */
+                    padding: 20px;
+                    box-sizing: border-box;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                    margin-right: 20px;
+                }
+
+                .gallery-item:hover {
+                    transform: scale(1.1);
+                }
+
+
+                .photo {
+                    width: 100%;
+                    cursor: pointer;
+                }
+
+                .prev-btn,
+                .next-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                .prev-btn {
+                    left: 0;
+                }
+
+                .next-btn {
+                    right: 0;
+                }
+            </style>
+
+            <script>
+                let currentIndex = 0;
+                const gallery = document.querySelector('.gallery');
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                const numItems = galleryItems.length;
+
+                function moveGallery(direction) {
+                    currentIndex = (currentIndex + direction + numItems) % numItems;
+                    const newPosition = -currentIndex * galleryItems[0].offsetWidth;
+                    gallery.style.transform = `translateX(${newPosition}px)`;
+                }
+
+
+                function showDetails(place) {
+                    // Scroll to the description section
+                    document.getElementById(place).scrollIntoView({ behavior: 'smooth' });
+                }
+            </script>
+            <div>
+                <button id="toggleGalleryBtn" onclick="toggleGallery2()"
+                    style="margin-left: 40px; margin-bottom: 30px;">
+                    <i class="fas fa-images"></i>
+                </button>
+
+                <div id="galleryContainer2" class="gallery-container2">
+                    <div class="gallery1">
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-1.jpg" alt="Image 1">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-2.jpg" alt="Image 2">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-3.jpg" alt="Image 3">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-4.jpg" alt="Image 4">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-5.jpg" alt="Image 5">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-6.jpg" alt="Image 6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-7.jpg" alt="Image 4">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-8.jpg" alt="Image 5">
+                            </div>
+                            <div class="column">
+                                <img src="img/Dalada Maligawa-9.jpg" alt="Image 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .gallery1 {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        max-width: 900px;
+                        margin-left: 100px;
+                        margin-bottom: 30px;
+                    }
+
+                    .row {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    .column {
+                        flex: 0 0 calc(33.33% - 20px);
+                        margin: 10px;
+                    }
+
+                    .column img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    .gallery-container2 {
+                        display: none;
+                    }
+                </style>
+                <script>
+                    function toggleGallery2() {
+                        var galleryContainer = document.getElementById("galleryContainer2");
+                        var toggleBtn = document.getElementById("toggleGalleryBtn2");
+
+                        if (galleryContainer.style.display === "none") {
+                            galleryContainer.style.display = "block";
+                        } else {
+                            galleryContainer.style.display = "none";
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="container" style="border: 5px solid #7AB730; border-radius: 5dvh; margin-bottom: 30px;">
+            <div id="Pidurangala Rock">
+                <h2 style="padding-left: 60px; padding-top: 40px;">Pidurangala Rock </h2>
+                <p>
+                <h5 style="padding-left: 40px;">1. About Place?</h5>
+                <P style="text-align: justify; padding-left: 30px; padding-right: 30px;"> Pidurangala Rock is a
+                    prominent geological formation located near Sigiriya in the Matale District of Sri Lanka. It offers
+                    panoramic views of the surrounding landscape and is renowned for its historical and archaeological
+                    significance. While overshadowed by the nearby Sigiriya Rock Fortress, Pidurangala offers a unique
+                    perspective and attracts visitors interested in adventure, nature, and cultural exploration.</P>
+
+                <h5 style="padding-left: 40px;">2. How to Travel?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> Pidurangala Rock is accessible
+                    from the town of Sigiriya, which serves as a base for exploring the area. Visitors can reach
+                    Sigiriya by bus, car, or organized tour from major cities like Colombo, Kandy, or Dambulla. From
+                    Sigiriya, it's a short drive or tuk-tuk ride to the base of Pidurangala Rock, followed by a hike to
+                    reach the summit.</p>
+
+                <h5 style="padding-left: 40px;">3. How Many Days Need?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> A visit to Pidurangala Rock
+                    can typically be completed within a few hours, including the hike to the top and time spent
+                    exploring the surroundings. However, for a more leisurely experience or to capture the sunrise or
+                    sunset views, visitors may choose to allocate additional time. Depending on individual preferences
+                    and interests, a half-day excursion is usually sufficient to appreciate the beauty and historical
+                    significance of Pidurangala Rock.</p>
+
+                <h5 style="padding-left: 40px;">4. How Much Money Need to Spend?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;"> The cost of visiting
+                    Pidurangala Rock is relatively low, primarily consisting of entrance fees and transportation
+                    expenses. Entrance fees are nominal, typically ranging from $3 to $5 per person. Additional expenses
+                    may include transportation to Sigiriya, guide fees if desired, and any purchases or refreshments
+                    during the visit. Overall, a visit to Pidurangala Rock is budget-friendly, making it accessible to a
+                    wide range of travelers.</p>
+                <ul>
+                    <li>Entrance Fee :- Approximately $3 to $5 per person.</li>
+                    <li>Transportation :- Varies depending on the mode of transport and distance traveled.</li>
+                    <li>Guide Fees (Optional) :- Around $5 to $10 per person, depending on the duration and services
+                        provided. </li>
+                    <li>Food and Refreshments :- Additional expenses for meals and refreshments if desired.</li>
+                    <li>Miscellaneous :- Any additional purchases or expenses during the visit.</li>
+                </ul>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px;">Overall, a conservative
+                    estimate for a visit to Pidurangala Rock could range from $10 to $20 per
+                    person, excluding transportation costs.</p>
+
+                <h5 style="padding-left: 40px;">5. How It Relates to Tourists?</h5>
+                <p style="text-align: justify; padding-left: 30px; padding-right: 30px; padding-bottom: 20px;">
+                    Pidurangala Rock offers a captivating experience for tourists seeking adventure, cultural
+                    exploration, and breathtaking views. The hike to the summit provides opportunities for outdoor
+                    enthusiasts to challenge themselves while enjoying the natural beauty of the surroundings.
+                    Additionally, Pidurangala's proximity to the iconic Sigiriya Rock Fortress makes it an ideal
+                    complement to the Sigiriya experience. Tourists often visit Pidurangala to capture stunning
+                    photographs, witness sunrise or sunset vistas, and immerse themselves in the rich history and
+                    heritage of the region.</p>
+                </p>
+            </div>
+            <style>
+                .gallery-container {
+                    position: relative;
+                    width: 100%;
+                    overflow: hidden;
+                    padding-left: 10px;
+                }
+
+                .gallery {
+                    display: flex;
+                    transition: transform 0.5s ease;
+                }
+
+                .gallery-item {
+                    flex: 0 0 32%;
+                    /* Each photo takes up 33.33% of container width */
+                    padding: 20px;
+                    box-sizing: border-box;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                    margin-right: 20px;
+                }
+
+                .gallery-item:hover {
+                    transform: scale(1.1);
+                }
+
+
+                .photo {
+                    width: 100%;
+                    cursor: pointer;
+                }
+
+                .prev-btn,
+                .next-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                .prev-btn {
+                    left: 0;
+                }
+
+                .next-btn {
+                    right: 0;
+                }
+            </style>
+
+            <script>
+                let currentIndex = 0;
+                const gallery = document.querySelector('.gallery');
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                const numItems = galleryItems.length;
+
+                function moveGallery(direction) {
+                    currentIndex = (currentIndex + direction + numItems) % numItems;
+                    const newPosition = -currentIndex * galleryItems[0].offsetWidth;
+                    gallery.style.transform = `translateX(${newPosition}px)`;
+                }
+
+
+                function showDetails(place) {
+                    // Scroll to the description section
+                    document.getElementById(place).scrollIntoView({ behavior: 'smooth' });
+                }
+            </script>
+            <div>
+                <button id="toggleGalleryBtn" onclick="toggleGallery3()"
+                    style="margin-left: 40px; margin-bottom: 30px;">
+                    <i class="fas fa-images"></i>
+                </button>
+
+                <div id="galleryContainer3" class="gallery-container3">
+                    <div class="gallery1">
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-1.jpg" alt="Image 1">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-2.jpg" alt="Image 2">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-3.jpg" alt="Image 3">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-4.jpg" alt="Image 4">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-5.jpg" alt="Image 5">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-6.jpg" alt="Image 6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-7.jpg" alt="Image 4">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-8.jpg" alt="Image 5">
+                            </div>
+                            <div class="column">
+                                <img src="img/Pidurangala Rock-9.jpg" alt="Image 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .gallery1 {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        max-width: 900px;
+                        margin-left: 100px;
+                        margin-bottom: 30px;
+                    }
+
+                    .row {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    .column {
+                        flex: 0 0 calc(33.33% - 20px);
+                        margin: 10px;
+                    }
+
+                    .column img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    .gallery-container3 {
+                        display: none;
+                    }
+                </style>
+                <script>
+                    function toggleGallery3() {
+                        var galleryContainer = document.getElementById("galleryContainer3");
+                        var toggleBtn = document.getElementById("toggleGalleryBtn3");
 
                         if (galleryContainer.style.display === "none") {
                             galleryContainer.style.display = "block";
