@@ -64,6 +64,20 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+    <script src="js/contact.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "BbmWzNfsVTZNyc4Th",
+            });
+        })();
+    </script>
 </head>
 
 <body>
@@ -237,48 +251,39 @@
 
 
     <!-- Contact Starting Point -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
-                <h1>Contact For Any Query</h1>
+    <div class="container border mt-3 bg-light"
+        style=" box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
+        <div class="row">
+            <div class="col-md-6 p-5 bg-primary text-white"
+                style="display: flex; flex-direction: column; align-items: center; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+                <img src="img/contact img.jpg" alt="Image description"
+                    style="width: 100%; max-width: 300px; height: auto; border-radius: 40%; margin-bottom: 20px;">
+                <h1 style="text-align: center;">Hi there!</h1>
+                <h2 style="text-align: center;">Contact For Any Query!</h2>
+                <h4 style="text-align: justify;">
+                    Have a question or need assistance? Simply fill in your details
+                    and message, and we'll get back to you as soon as possible.
+                </h4>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form bg-white" style="padding: 30px;">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required"
-                                        data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                                    required="required"
-                                    data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send
-                                    Message</button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-md-6 border-left py-3">
+                <h1>Contact form</h1>
+                <div class="form-group">
+                    <h5 for="name">Name</h5>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" />
                 </div>
+                <div class="form-group">
+                    <h5 for="email">Email</h5>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" />
+                </div>
+                <div class="form-group">
+                    <h5 for="subject">Subject</h5>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject" />
+                </div>
+                <div class="form-group">
+                    <h5 for="message">Message</h5>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="sendMail() ">Submit</button>
             </div>
         </div>
     </div>
