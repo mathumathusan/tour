@@ -262,7 +262,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary btn-block" type="submit"
+                        <button class="btn btn-primary btn-block" type="submit" onclick="fetchDataAndPopulateTable()"
                             style="height: 47px; margin-top: -2px;">Submit</button>
                     </div>
                 </div>
@@ -270,7 +270,23 @@
         </div>
     </div>
     <!-- Booking Ending Point  -->
-
+      
+    <table id="resultTable"  style="display: none;border-collapse: collapse; width: 100%;text-align:center;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px;">plans for the places</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">date</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">name</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+                <td style="border: 1px solid #ddd; padding: 8px;">1 st day you can go</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"></td>
+   
+        </tbody>
+    </table>
 
     <!-- About Starting Point -->
     <div class="container-fluid py-5">
@@ -998,6 +1014,43 @@
 
     <!-- DarkMode and Light mode -->
     <script>
+       function fetchDataAndPopulateTable() {
+    $.ajax({
+        url: 'http://localhost:8080/api/places/destination',
+        method: 'GET',
+        success: function(data) {
+            const tableBody = $('#resultTable tbody');
+            tableBody.empty(); // Clear existing table rows
+            var i = 0;
+            
+            data.forEach((place, index) => {
+    // Parse the date string into a Date object
+    const date = new Date(place.date);
+
+    // Increase the date by one day
+    date.setDate(date.getDate() + index);
+
+    // Format the date to display only the date part (YYYY-MM-DD)
+    const formattedDate = date.toISOString().split('T')[0];
+
+    // Create the table row and append data
+    const row = $('<tr></tr>');
+    row.append(`<td>${index + 1}st day you can go ${place.name}</td>`);
+    row.append(`<td>${formattedDate}</td>`); // Display only the date part
+    row.append(`<td>${place.name}</td>`);
+    tableBody.append(row);
+});
+
+            $('#resultTable').css('display', 'table'); // Show the table after populating data
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+
         function toggleDarkMode() {
             const body = document.body;
             const lightIcon = document.getElementById('lightIcon');
